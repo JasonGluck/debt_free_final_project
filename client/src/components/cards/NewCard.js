@@ -9,9 +9,9 @@ import {showNewCard} from '../../ducks/userAccess'
 class NewCard extends Component {
   constructor(props){
     super(props)
-    let id = (localStorage.current_user_id)
     let submitName
-    this.state = {name: '', debt: '', interest_rate:'', expenditure:0, payment: '', user_id: id, payment_type: '$'}
+    let id = this.props.id
+    this.state = {name: '', debt: '', interest_rate:'', expenditure: 0, payment: '', user_id: id, payment_type: '$'}
   }
 
   handleName(event){
@@ -66,7 +66,7 @@ class NewCard extends Component {
   render(){
     return(
       <div className="twelve columns" id="forms">
-      <h2>{this.props.current.user === "" ? "Try" : "Add"} A Card</h2>
+      <h2>Add A Card</h2>
       <form onSubmit={this.handleSubmit.bind(this)} >
          <p><label id="userLabel">Card Name</label><input type="text" id="card_name" placeholder="My Visa" onChange={this.handleName.bind(this)}/></p>
          <p><label id="userLabel">Total Debt</label><input type="number" id="debt" step=".01" onChange={this.handleDebt.bind(this)} /></p>
@@ -75,7 +75,7 @@ class NewCard extends Component {
          <p><label id="userLabel">Monthly Expenditure</label><input type="number" id="expenditure" step=".01" onChange={this.handleExpenditure.bind(this)} /></p>
          <input type="radio" id="$" onChange={this.handleRadio.bind(this)} name="paymentType" defaultChecked={true} />$<input type="radio" id="%" name="paymentType" onChange={this.handleRadio.bind(this)} />%</p>
          <p><input type="submit" onClick={this.setSubmit.bind(this)} id="preview" value="preview" /></p>
-         {this.props.current.user !== "" ? <p><input type="submit" onClick={this.setSubmit.bind(this)} id="rails" value="store" /></p> : <span />}
+         <p><input type="submit" onClick={this.setSubmit.bind(this)} id="rails" value="store" /></p>
       </form>
       {this.props.newCard.error ? <h2 className="error">{this.props.newCard.error}</h2> : <span /> }
       </div>
@@ -85,6 +85,6 @@ class NewCard extends Component {
 
 }
 function mapStateToProps(state){
-  return {newCard: state.newCard}
+  return {newCard: state.newCard, id: state.current.user.id}
 }
 export default connect(mapStateToProps, { showNewCard, allFalse, createCard,setCard,setPeriod,setValue })(NewCard)

@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { browserHistory } from 'react-router'
-import {setCard, addNewCardtoUser} from './current'
-// import {showNewCard} from './userAccess'
+import {setCard, addNewCardtoUser, removeCardFromCurrent, removeCardFromUser} from './current'
+
 
 export function createCard(formData){
   return function(dispatch){
@@ -22,23 +22,23 @@ export function createCard(formData){
   }
 }
 
-// export function editCard(formData){
-//   return function(dispatch){
-//     dispatch(findingCard())
-//     $.ajax({
-//       url: `http://localhost:3000/cards/` + formData.id,
-//       type: 'PATCH',
-//       data: {period: formData},
-//       headers: {authorization: localStorage.getItem('token')}
-//     }).done((response) => {
-//       dispatch(removeCardFromCurrent(response.card.id))
-//       dispatch(removeCardFromUser(response.card.id))
-//       dispatch(setCard([response.card]))
-//       dispatch(addCardToUser(response.card))
-//       dispatch(foundCard())
-//     })
-//   }
-// }
+export function editCard(formData){
+  return function(dispatch){
+    dispatch(findingCard())
+    $.ajax({
+      url: `http://localhost:3000/cards/` + formData.id,
+      type: 'PATCH',
+      data: {period: formData},
+      headers: {authorization: localStorage.getItem('token')}
+    }).done((response) => {
+      dispatch(removeCardFromCurrent(response.card.id))
+      dispatch(removeCardFromUser(response.card.id))
+      dispatch(setCard([response.card]))
+      dispatch(addNewCardtoUser(response.card))
+      dispatch(foundCard())
+    })
+  }
+}
 
 export default(state = {finding_card: false, error: ''}, action) => {
   switch (action.type) {

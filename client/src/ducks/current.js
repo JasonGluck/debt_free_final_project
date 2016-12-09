@@ -22,6 +22,12 @@ export default (state={user: "", card: "", periods: []}, action) => {
       return {...state, periods: [...state.periods, ...action.payload]}
     case 'OVERWRITE_PERIODS':
       return {...state, periods: action.payload}
+    case 'REMOVE_CARD_FROM_USER':
+    debugger
+      return
+    case 'REMOVE_CARD_FROM_CURRENT':
+    debugger
+      return
     default:
       return state
   }
@@ -61,6 +67,12 @@ export function addPeriodToUser(input){
 export function removePeriodFromUser(input){
   return {type: 'REMOVE_PERIOD_FROM_USER', payload: input}
 }
+
+export function removeCardFromUser(input){
+  return {type: 'REMOVE_CARD_FROM_USER', payload: input}
+
+}
+
 
 export function setCurrentUser(input){
   return {type: 'SET_USER', payload: input}

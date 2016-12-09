@@ -6,6 +6,9 @@ import signin from './signin.js'
 import newCard from './newcard.js'
 import newPeriod from './newperiod.js'
 import current from './current.js'
+import { Router, Route, browserHistory } from 'react-router'
+
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 
 const rootReducer = combineReducers({
   tableData,
@@ -14,7 +17,8 @@ const rootReducer = combineReducers({
   signin,
   newCard,
   newPeriod,
-  current
+  current, 
+  routing: routerReducer
 })
 
 export default rootReducer

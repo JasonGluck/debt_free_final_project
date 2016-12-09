@@ -20,7 +20,7 @@ export function createUser(formData){
       dispatch(fetchUser(response.user.id))
       dispatch(loginNewUser())
       dispatch(loginUser(response))
-      dispatch(showNewCard())
+      // dispatch(showNewCard())
     }).catch((response)=>{
       let error = response.responseJSON.error.join(', ')
       dispatch(errorMessage(error))

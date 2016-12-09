@@ -1,6 +1,7 @@
 import $, { ajax } from 'jquery';
 import {setCurrentUser} from './current'
 import {fetchUser} from './fetchUser'
+import {browserHistory} from 'react-router'
 import {showNewCard,allFalse} from './userAccess'
 
 export function locateAndLoginUser(formData){
@@ -18,9 +19,10 @@ export function locateAndLoginUser(formData){
       localStorage.setItem('token', response.jwt)
       let userid = response.user.id
       dispatch(fetchUser(userid))
-      dispatch(allFalse())
+      // dispatch(allFalse())
       // debugger
       // dispatch(showNewCard())
+      browserHistory.push('/user')
     }).catch((response)=>{
       let message = response.responseJSON
       dispatch(errorMessage(message))

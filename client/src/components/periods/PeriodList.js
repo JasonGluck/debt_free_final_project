@@ -4,7 +4,7 @@ import PeriodEdit from './PeriodEdit'
 import {removePeriodFromCurrent, setPeriod} from '../../ducks/current'
 import {connect} from 'react-redux'
 
-export default class PeriodList extends React.Component {
+ class PeriodList extends React.Component {
   constructor(props){
     super(props)
     this.state = {showChildren: false, calledChild: "", showEditForm: false, editChild: ""}
@@ -30,21 +30,22 @@ export default class PeriodList extends React.Component {
   }
 
   editShownPeriod(event){
-    let thing = this.props.data.periods.filter(item=>{ if (item.id == event.target.id)
+    let thing = this.props.current.periods.filter(item=>{ if (item.id == event.target.id)
       {return item}})
   if (thing.length >= 1)
       {this.props.removePeriodFromCurrent(event.target.id)}
   else {
-    let period = this.props.data.user.periods.filter(item=>{return item.id == event.target.id})
+    let period = this.props.current.user.periods.filter(item=>{return item.id == event.target.id})
     this.props.setPeriod(period)
     }
   }
 
   render(){
+    
     let shownPeriod, showThis
-    if (this.props.data.user !== ""){
-      shownPeriod = this.props.data.user.periods.filter(period=>{
-        return period.credit_card_id === this.props.data.card.id
+    if (this.props.current.user){
+      shownPeriod = this.props.current.user.periods.filter(period=>{
+        return period.credit_card_id === this.props.current.card.id
       })
     }
     if (shownPeriod) {
@@ -70,5 +71,8 @@ export default class PeriodList extends React.Component {
   )
   }
 }
+function mapStateToProps(state){
+  return {current: state.current}
+}
 
-// export default connect(null, { setPeriod })(PeriodList)
+export default connect(mapStateToProps)(PeriodList)

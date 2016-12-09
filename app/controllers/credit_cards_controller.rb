@@ -26,6 +26,7 @@ class CreditCardsController < ApplicationController
 
   def update
     card = Card.find(params[:id])
+    byebug
     card.update(card_params)
     render json: {card: card}
   end
