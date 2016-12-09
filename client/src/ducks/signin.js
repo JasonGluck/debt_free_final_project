@@ -19,6 +19,8 @@ export function locateAndLoginUser(formData){
       let userid = response.user.id
       dispatch(fetchUser(userid))
       dispatch(allFalse())
+      // debugger
+      // dispatch(showNewCard())
     }).catch((response)=>{
       let message = response.responseJSON
       dispatch(errorMessage(message))

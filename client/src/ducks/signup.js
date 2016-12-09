@@ -2,7 +2,9 @@ import $ from 'jquery';
 import { browserHistory } from 'react-router'
 import {initialState, setInitial} from './tableData'
 import {setCurrentUser} from './current'
-
+import {fetchUser} from './fetchUser'
+import {loginUser} from './signin'
+import {showNewCard} from './userAccess'
 export function createUser(formData){
   return function(dispatch){
     dispatch(findingUser())
@@ -14,8 +16,10 @@ export function createUser(formData){
       datatype: 'json'
     }).then((response) => {
       localStorage.setItem('token', response.jwt)
-      dispatch(setCurrentUser(response.user))
-      dispatch(loginUser())
+      dispatch(fetchUser(response.user.id))
+      dispatch(loginNewUser())
+      dispatch(loginUser(response))
+      dispatch(showNewCard())
     }).catch((response)=>{
       let error = response.responseJSON.error.join(', ')
       dispatch(errorMessage(error))
@@ -38,4 +42,4 @@ export default(state = {creating_user: false, error: '', signingup: true}, actio
 
 export const errorMessage = (input) => ({type: 'SIGN_UP_ERROR', payload: input})
 export const findingUser = () => ({type: 'FINDING_USER'})
-export const loginUser = (response) => ({type: 'LOGIN_CREATED_USER'})
+export const loginNewUser = (response) => ({type: 'LOGIN_CREATED_USER'})
