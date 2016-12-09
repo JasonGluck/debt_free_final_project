@@ -1,17 +1,17 @@
 import React from 'react'
 
 const TableHead = () => {
+  let headers = ["Period", "Year", "Month", "Debt", "Payment", "Expenditure", "Interest Payment", "New Balance"]
+  let header_elements = headers.map((element) => {
+    return <th className="text-center">{element}</th>
+  })
+
   return (
-    <thead><tr>
-      <th className="text-center">Period</th>
-      <th className="text-center">Year</th>
-      <th className="text-center">Month</th>
-      <th className="text-center">Debt</th>
-      <th className="text-center">Payment</th>
-      <th className="text-center">Expenditure</th>
-      <th className="text-center">Interest Payment</th>
-      <th className="text-center">New Balance</th>
-    </tr></thead>
+    <thead>
+      <tr>
+        {header_elements}
+      </tr>
+    </thead>
   )
 }
 

@@ -1,6 +1,4 @@
 const React = require('react')
-import TableHead from '../components/table/TableHead'
-import TableBody from '../components/table/TableBody'
 import Results from '../components/table/Results'
 import Chart from '../components/Chart'
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import TableHead from './table/TableHead'
 import TableBody from './table/TableBody'
-import {LineChart, AreaChart, Area, Brush, Line, XAxis, YAxis, Tooltip, Legend} from 'recharts'
+import {LineChart, AreaChart, Area, Line, XAxis, YAxis, Tooltip, Legend} from 'recharts'
 
 const Chart = (props) => {
   return(

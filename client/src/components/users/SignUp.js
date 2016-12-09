@@ -40,7 +40,6 @@ class Signup extends Component {
             <input type="submit" />
         </form>
           {this.props.signup.error ? <h2 className="error">{this.props.signup.error}</h2> : <span /> }
-
       </div>
     )
   }
