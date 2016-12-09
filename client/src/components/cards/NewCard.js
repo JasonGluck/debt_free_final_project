@@ -87,4 +87,4 @@ class NewCard extends Component {
 function mapStateToProps(state){
   return {newCard: state.newCard}
 }
-export default connect(mapStateToProps, { showNewCard, createCard,setCard,setPeriod,setValue })(NewCard)
+export default connect(mapStateToProps, { showNewCard, allFalse, createCard,setCard,setPeriod,setValue })(NewCard)

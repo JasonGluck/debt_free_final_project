@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { browserHistory } from 'react-router'
 import {setCard, addNewCardtoUser} from './current'
+// import {showNewCard} from './userAccess'
 
 export function createCard(formData){
   return function(dispatch){
