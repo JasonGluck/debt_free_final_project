@@ -1,6 +1,8 @@
 const React = require('react')
 import Results from '../components/table/Results'
 import Chart from '../components/Chart'
+import { connect } from 'react-redux'
+
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
@@ -77,4 +79,8 @@ class Table extends React.Component {
   }
 }
 
-module.exports = Table
+// module.exports = Table
+function mapStateToProps(state){
+  return {data: state.tableData, current: state.current}
+}
+export default connect(mapStateToProps)(Table)

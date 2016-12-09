@@ -14,6 +14,7 @@ export function createPeriod(formData){
     }).then((response) => {
       dispatch(setPeriod([response.period]))
       dispatch(foundPeriod())
+      browserHistory.push('/periods/show')
     }).catch((response)=>{
       let errors = response.responseJSON.error.join(', ')
       dispatch(periodError(errors))

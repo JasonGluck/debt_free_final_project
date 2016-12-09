@@ -21,6 +21,7 @@ import PeriodList from './components/periods/PeriodList'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import '../public/css/table.css';
 import GuestHome from './containers/GuestHome'
+import UserForms from './containers/UserForms'
 import UserHome from './containers/UserHome'
 import { Router, Route, browserHistory } from 'react-router'
 
@@ -34,12 +35,13 @@ ReactDOM.render(
       <Route path="/signin" component={SignIn} />
     </Route>
     <Route path="/user" component={UserHome}>
-      <Route path="/table" component={Table} />
+      <Route path="/periods/show" component={PeriodList} />
+    </Route>
+    <Route path="/user/form" component={UserForms} >
       <Route path="/periods/new" component={NewPeriod} />
       <Route path="/periods/edit" component={EditPeriod} />
       <Route path="/cards/new" component={NewCard} />
       <Route path="/cards/edit" component={EditCard} />
-      <Route path="/periods/show" component={PeriodList} />
     </Route>
     </Router>
   </Provider>,

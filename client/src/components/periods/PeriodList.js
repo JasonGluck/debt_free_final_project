@@ -75,4 +75,4 @@ function mapStateToProps(state){
   return {current: state.current}
 }
 
-export default connect(mapStateToProps)(PeriodList)
+export default connect(mapStateToProps, {removePeriodFromCurrent, setPeriod})(PeriodList)

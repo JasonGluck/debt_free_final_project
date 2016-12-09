@@ -6,7 +6,7 @@ import {addPeriodToUser} from '../../ducks/current'
 class NewPeriod extends Component {
   constructor(props){
     super(props)
-    this.state = {start_month: '', start_year: '', end_month: '', end_year: '', expenditure:'', payment: '', credit_card_id: this.props.card, name: ''}
+    this.state = {start_month: '', start_year: '', end_month: '', end_year: '', expenditure:'', payment: '', credit_card_id: this.props.current.card.id, name: ''}
   }
 
   handleStartDate(event){
@@ -57,7 +57,7 @@ class NewPeriod extends Component {
   }
 }
 function mapStateToProps(state){
-  return {newPeriod: state.newPeriod}
+  return {newPeriod: state.newPeriod, current: state.current}
 }
 
 

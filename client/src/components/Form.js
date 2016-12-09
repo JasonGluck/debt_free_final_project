@@ -2,8 +2,8 @@ import React from 'react'
 import InputBoxDoneTyping from 'react-input-box-done-typing'
 import {connect} from 'react-redux'
 import { addPeriod } from '../ducks/userAccess'
-import { overWritePeriods } from '../ducks/current'
-
+import { overWritePeriods, setCard, } from '../ducks/current'
+import {setValue} from '../ducks/tableData'
 const Form = (props) => {
 
   const handleChange = (event) => {
@@ -50,4 +50,8 @@ const Form = (props) => {
   )
 }
 
-export default connect(null, {addPeriod, overWritePeriods})(Form)
+function mapStateToProps(state){
+  return {current: state.current, data: state.tableData}
+}
+
+export default connect(mapStateToProps, {addPeriod, overWritePeriods, setValue, setCard})(Form)
