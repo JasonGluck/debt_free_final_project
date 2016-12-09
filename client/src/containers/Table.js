@@ -32,6 +32,8 @@ class Table extends React.Component {
     let total_interest = 0
     let payment_array = []
 
+//     Let's use a higher level iterator instead of while
+//     perhaps lean on mapping through the periods data if possible
     while (theDebt > 0 && i < 360){
       let inPeriod = allPeriods(this.props.current.periods, current_month, current_year)
       if (inPeriod) {
@@ -55,6 +57,8 @@ class Table extends React.Component {
         <td key={4} className="text-left">${parseData(payment)}</td>
         <td key={5} className="text-left">${parseData(expenditure)}</td>
         <td key={6} className="text-left">${parseData(theDebt * (this.props.data.interest / 1200))}</td>
+//     This logic shouldn't be here.  Views should just rdender, not calculate.  Some of this logic 
+//     should be moved back to rails api, and then react can just render the calculated data.
         <td key={7} className="text-left">${parseData(theDebt - payment + expenditure + (theDebt * (this.props.data.interest / 1200)))}</td>
       </tr>)
       if (months.indexOf(current_month) + 1 > months.length - 1){
