@@ -18,7 +18,7 @@ class Period < ApplicationRecord
   end
 
   def end_date 
-     date = self.end_month + " " + self.end_month.to_s
+     date = self.end_month + " " + self.end_year.to_s
   end
 
   def associated_card_periods
