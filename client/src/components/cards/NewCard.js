@@ -4,6 +4,7 @@ import {createCard} from '../../ducks/newcard'
 import { setCard, setPeriod } from '../../ducks/current'
 import { allFalse } from '../../ducks/userAccess'
 import { setValue } from '../../ducks/tableData'
+import {showNewCard} from '../../ducks/userAccess'
 
 class NewCard extends Component {
   constructor(props){
@@ -56,6 +57,7 @@ class NewCard extends Component {
     if (this.submitName === "store"){
       this.props.createCard(this.state)
     }
+    this.props.showNewCard()
   }
   setSubmit(button){
     this.submitName = button.target.value
@@ -85,4 +87,4 @@ class NewCard extends Component {
 function mapStateToProps(state){
   return {newCard: state.newCard}
 }
-export default connect(mapStateToProps, { createCard,setCard,setPeriod,setValue })(NewCard)
+export default connect(mapStateToProps, { showNewCard, createCard,setCard,setPeriod,setValue })(NewCard)
