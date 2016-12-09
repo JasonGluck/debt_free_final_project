@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { browserHistory } from 'react-router'
-import {setCard, addCardToUser, removeCardFromUser, removeCardFromCurrent} from './current'
+import {setCard, addCardtoUser, removeCardFromUser, removeCardFromCurrent} from './current'
+import {showNewCard} from './userAccess'
 
 export function createCard(formData){
   return function(dispatch){
@@ -12,8 +13,10 @@ export function createCard(formData){
       headers: {authorization: localStorage.getItem('token')}
     }).then((response) => {
       dispatch(setCard(response.card))
-      dispatch(addCardToUser(response.card))
+      dispatch(addCardtoUser(response.card))
       dispatch(foundCard())
+      dispatch(showNewCard())
+
     }).catch((response)=>{
       let errors = response.responseJSON.error.join(', ')
       dispatch(cardError(errors))
@@ -22,19 +25,24 @@ export function createCard(formData){
 }
 
 export function editCard(formData){
+  debugger
   return function(dispatch){
     dispatch(findingCard())
     $.ajax({
-      url: `http://localhost:3000/cards/` + formData.id,
+      url: `http://localhost:3000/credit_cards/` + formData.id,
       type: 'PATCH',
       data: {period: formData},
       headers: {authorization: localStorage.getItem('token')}
     }).done((response) => {
+      debugger
       dispatch(removeCardFromCurrent(response.card.id))
       dispatch(removeCardFromUser(response.card.id))
       dispatch(setCard([response.card]))
-      dispatch(addCardToUser(response.card))
+      dispatch(addCardtoUser(response.card))
       dispatch(foundCard())
+    }).catch((response)=>{
+      let errors = response.responseJSON.error.join(', ')
+      dispatch(cardError(errors))
     })
   }
 }

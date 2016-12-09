@@ -15,7 +15,6 @@ export function createPeriod(formData){
       dispatch(setPeriod([response.period]))
       dispatch(foundPeriod())
     }).catch((response)=>{
-      debugger
       let errors = response.responseJSON.error.join(', ')
       dispatch(periodError(errors))
     })

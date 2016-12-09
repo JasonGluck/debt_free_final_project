@@ -5,6 +5,7 @@ class CreditCardsController < ApplicationController
     params[:card][:min_payment] = params[:card][:payment]
     card = CreditCard.new(card_params)
     if card.save
+      # byebug
       render json: {card: card}
     else
       render status: 404, json: {error: card.errors.full_messages}
@@ -22,6 +23,7 @@ class CreditCardsController < ApplicationController
   end
 
   def update
+    byebug
     card = Card.find(params[:id])
     card.update(card_params)
     render json: {card: card}

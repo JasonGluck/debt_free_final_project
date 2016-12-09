@@ -7,9 +7,9 @@ import { setValue } from '../../ducks/tableData'
 class NewCard extends Component {
   constructor(props){
     super(props)
-    let id = (localStorage.current_user_id)
+    let id = this.props.id
     let submitName
-    this.state = {name: '', debt: '', interest_rate:'', expenditure:0, payment: '', user_id: id, payment_type: '$'}
+    this.state = {name: '', debt: '', interest_rate: '', expenditure:0, payment: '', user_id: id, payment_type: '$'}
   }
 
   handleName(event){
@@ -81,6 +81,6 @@ class NewCard extends Component {
 
 }
 function mapStateToProps(state){
-  return {newCard: state.newCard}
+  return {newCard: state.newCard, id: state.current.user.id}
 }
 export default connect(mapStateToProps, { createCard,setCard,setPeriod,setValue })(NewCard)
