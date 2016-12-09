@@ -8,6 +8,12 @@ export default (state={user: "", card: "", periods: []}, action) => {
       return{...state, user: {...state.user, credit_cards: [...state.user.credit_cards, action.payload]} }
     case 'SET_CARD':
       return {...state, card: action.payload}
+    case 'REMOVE_CARD_FROM_SYSTEM':
+      var changeUser = state.user
+      var periods = state.periods
+      changeUser.cards = state.user.cards.filter(card=>{if (card.id != action.payload)
+        {return card}})
+      return {user: changeUser, card: "", periods}
     case 'ADD_PERIOD_TO_USER':
       return{...state, user: {...state.user, periods: [...state.user.periods, action.payload]} }
     case 'REMOVE_PERIOD_FROM_CURRENT':
@@ -51,7 +57,7 @@ export function removePeriodFromCurrent(input){
   return {type: 'REMOVE_PERIOD_FROM_CURRENT', payload: input}
 }
 
-export function addNewCardtoUser(input){
+export function addCardtoUser(input){
   return {type: 'ADD_CARD_TO_USER', payload: input}
 }
 

@@ -52,7 +52,7 @@ class Table extends React.Component {
       payment_array.push({Month:i + 1, Payment: parseFloat(payment.toFixed(2)), Expenditure: parseFloat(expenditure.toFixed(2)), Interest: parseFloat((theDebt * (this.props.data.interest / 1200)).toFixed(2)), Balance: parseFloat((theDebt - payment + expenditure + (theDebt * (this.props.data.interest / 1200))).toFixed(2))})
       total_interest += (theDebt * (this.props.data.interest / 1200))
       future_data.push(
-      <tr key={i}>
+      <tr key={i} id={period}>
         <td key={0} className="text-left">{period}</td>
         <td key={1} className="text-left">{current_year}</td>
         <td key={2} className="text-left">{current_month}</td>
