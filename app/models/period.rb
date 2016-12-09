@@ -18,7 +18,7 @@ class Period < ApplicationRecord
   end
 
   def end_date 
-     date = self.end_month + " " + self.end_month.to_s
+     date = self.end_month + " " + self.end_year.to_s
   end
 
   def associated_card_periods
@@ -30,8 +30,7 @@ class Period < ApplicationRecord
     periods = Period.where(credit_card_id: self.credit_card_id).to_a 
     period_starts = periods.map {|period| period.start_date}
     if period_starts.include?(self.start_date)
-      errors.add(:start_month, "you already have a period with that month for this card!")
-      errors.add(:start_year, "you already have a period with that year for this card!")
+      errors.add(:start_date, "already exists for this card")
     end 
   end 
 
@@ -40,8 +39,7 @@ class Period < ApplicationRecord
     periods = Period.where(credit_card_id: self.credit_card_id).to_a 
     period_ends = periods.map {|period| period.end_date}
     if period_ends.include?(self.end_date)
-      errors.add(:end_month, "you already have a period with that month for this card!")
-      errors.add(:end_year, "you already have a period with that year for this card!")
+      errors.add(:end_date, "already exists for this card")
     end 
   end 
 
