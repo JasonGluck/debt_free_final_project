@@ -5,6 +5,7 @@ import {setCurrentUser} from './current'
 import {fetchUser} from './fetchUser'
 import {loginUser} from './signin'
 import {showNewCard} from './userAccess'
+
 export function createUser(formData){
   return function(dispatch){
     dispatch(findingUser())

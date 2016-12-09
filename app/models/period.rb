@@ -10,10 +10,15 @@ class Period < ApplicationRecord
   validates :name, presence: true
   delegate :user, to: :credit_card
   # validates_uniqueness_of :start_month, :scope => [:associated_card_periods, :start_year]
-  # validate :start_validator
-  # HTK REFACTOR WORK IN PROGRESS
+  validate :start_validator
+  validate :end_validator
+
   def start_date
      date = self.start_month + " " + self.start_year.to_s
+  end
+
+  def end_date 
+     date = self.end_month + " " + self.end_month.to_s
   end
 
   def associated_card_periods
@@ -22,12 +27,25 @@ class Period < ApplicationRecord
   end 
 
   def start_validator
-    periods = Period.where(credit_card_id: self.credit_card_id) 
-    if periods.include?(self.start_date)
+    periods = Period.where(credit_card_id: self.credit_card_id).to_a 
+    period_starts = periods.map {|period| period.start_date}
+    if period_starts.include?(self.start_date)
       errors.add(:start_month, "you already have a period with that month for this card!")
-      errors.add(:start_month, "you already have a period with that month for this card!")
+      errors.add(:start_year, "you already have a period with that year for this card!")
     end 
   end 
+
+
+  def end_validator
+    periods = Period.where(credit_card_id: self.credit_card_id).to_a 
+    period_ends = periods.map {|period| period.end_date}
+    if period_ends.include?(self.end_date)
+      errors.add(:end_month, "you already have a period with that month for this card!")
+      errors.add(:end_year, "you already have a period with that year for this card!")
+    end 
+  end 
+
+  
 
   # after_initialize :defaults, unless: :persisted?
 
