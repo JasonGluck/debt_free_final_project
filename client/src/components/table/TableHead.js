@@ -2,8 +2,8 @@ import React from 'react'
 
 const TableHead = () => {
   let headers = ["Period", "Year", "Month", "Debt", "Payment", "Expenditure", "Interest Payment", "New Balance"]
-  let header_elements = headers.map((element) => {
-    return <th className="text-center">{element}</th>
+  let header_elements = headers.map((element, i) => {
+    return <th key={i} className="text-center">{element}</th>
   })
 
   return (

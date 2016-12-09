@@ -1,5 +1,3 @@
-import moment from 'moment'
-
 export default (state={}, action) => {
   switch (action.type) {
     // case 'SET_STATE':

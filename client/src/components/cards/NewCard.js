@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import {createCard} from '../../ducks/newcard'
 import { setCard, setPeriod } from '../../ducks/current'
+import { allFalse } from '../../ducks/userAccess'
 import { setValue } from '../../ducks/tableData'
 
 class NewCard extends Component {
@@ -51,6 +52,7 @@ class NewCard extends Component {
                     expenditure: this.state.expenditure,
                     interest: this.state.interest_rate}
     this.props.setValue(newValues)
+    this.props.allFalse()
     if (this.submitName === "store"){
       this.props.createCard(this.state)
     }
