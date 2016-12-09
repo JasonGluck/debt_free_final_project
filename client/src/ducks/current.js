@@ -23,14 +23,19 @@ export default (state={user: "", card: "", periods: []}, action) => {
     case 'OVERWRITE_PERIODS':
       return {...state, periods: action.payload}
     case 'REMOVE_CARD_FROM_USER':
-    debugger
-      return
-    case 'REMOVE_CARD_FROM_CURRENT':
-    debugger
-      return
+      
+      var filteredCards = state.user.credit_cards.filter(item=>{ return item.id != action.payload})
+      var filteredUser = Object.assign(state.user, {}, {credit_cards: filteredCards})
+      return  Object.assign({}, state, {user: filteredUser})
+    case 'LOG_OUT_USER':
+      return {user: "", card: "", periods: []}
     default:
       return state
   }
+}
+
+export function resetCurrent(){
+  return {type: 'LOG_OUT_USER'}
 }
 
 export function overWritePeriods(input){

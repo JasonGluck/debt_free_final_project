@@ -27,16 +27,17 @@ export function editCard(formData){
   return function(dispatch){
     dispatch(findingCard())
     $.ajax({
-      url: `http://localhost:3000/cards/` + formData.id,
+      url: `http://localhost:3000/credit_cards/` + formData.id,
       type: 'PATCH',
-      data: {period: formData},
+      data: {card: formData},
       headers: {authorization: localStorage.getItem('token')}
     }).done((response) => {
-      dispatch(removeCardFromCurrent(response.card.id))
+      debugger
       dispatch(removeCardFromUser(response.card.id))
-      dispatch(setCard([response.card]))
+      dispatch(setCard(response.card))
       dispatch(addNewCardtoUser(response.card))
       dispatch(foundCard())
+      browserHistory.push('/user')
     })
   }
 }

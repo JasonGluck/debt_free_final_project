@@ -21,4 +21,17 @@ const rootReducer = combineReducers({
   routing: routerReducer
 })
 
+
+
 export default rootReducer
+
+
+// const rootReducer = (state, action) => {
+// if (action.type === 'USER_LOGOUT') {
+//     const { routing } = state
+//     state = { routing } 
+// }
+// return appReducer(state, action)
+// }
+// http://stackoverflow.com/questions/35622588/how-to-reset-the-state-of-a-redux-store
+// // 

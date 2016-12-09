@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import { addPeriod } from '../ducks/userAccess'
 import { overWritePeriods, setCard, } from '../ducks/current'
 import {setValue} from '../ducks/tableData'
+import {browserHistory} from 'react-router'
 const Form = (props) => {
 
   const handleChange = (event) => {
@@ -27,6 +28,12 @@ const Form = (props) => {
     props.addPeriod()
   }
 
+  const handleEditCard =  (event) => {
+    event.preventDefault()
+    browserHistory.push('/cards/edit')
+    // props.current.card
+  }
+
   let user_cards
   if (props.current.user && props.current.user.credit_cards) {
     user_cards =
@@ -37,7 +44,7 @@ const Form = (props) => {
 
   return (
     <div className="container" id="tableform" >
-      {props.current.user !== "" && <div><h3> Credit Card(s): </h3> {props.current.card !== "" ? <select onChange={handleCard.bind(props)}>{user_cards}</select> : <p></p>}<button>Edit</button></div>}
+      <div><h3> Credit Card(s): </h3>  <select onChange={handleCard.bind(props)}>{user_cards}</select> <button onClick={handleEditCard.bind(props)}>Edit</button></div>
       <h2>Default Financial Data</h2>
       {props.data.payment &&
       <div>
