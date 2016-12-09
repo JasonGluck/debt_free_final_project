@@ -39,13 +39,19 @@ class Navbar extends React.Component {
     return (
       <div id="navbar">
         <span id="title">Debt Free</span>
-        {this.props.current.user === "" ? <button onClick={handleTabs.bind(this)}>Sign Up</button> : <span />}
+//       JK: You can just return null, as opposed to spans here.
+//       Maybe also set the default state of current.user equal to null, so you don't need three different conditionals here.
+//       condense this into 
+//       if(this.props.current.user){
+//       }
+        {this.props.current.user === "" ? <button onClick={handleTabs.bind(this)}>Sign Up</button> : null }
         {this.props.current.user === "" ? <button onClick={handleTabs.bind(this)}>Sign In</button> : <span />}
         {this.props.current.user ? <button onClick={handleClick.bind(this)}>Sign Out</button> : <span />}
         <button onClick={handleTabs.bind(this)}>{this.props.current.user ? "Add" : "Try"} a Credit Card</button>
         {this.props.current.user ? <button onClick={handleTabs.bind(this)}>Add a Period</button> : <span />}
         {this.props.current.user ? <button onClick={handleTabs.bind(this)}>View Periods</button> : <span />}
         <br />
+//           What does userAccess depend on?  Is it something with authorization where you should redirect to a differennt page?
         {this.props.userAccess.showSignUp && this.props.signingup ? <SignUp /> : <p />}
         {this.props.userAccess.showSignIn ? <SignIn /> : <p />}
         {this.props.userAccess.addCreditCard ? <NewCard current={this.props.current} /> : <p />}
