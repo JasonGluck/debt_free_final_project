@@ -4,13 +4,18 @@ import {connect} from 'react-redux'
 // import { addPeriod } from '../ducks/userAccess'
 import { overWritePeriods, setCard, } from '../ducks/current'
 import {setValue} from '../ducks/tableData'
-import {browserHistory} from 'react-router'
-const Form = (props) => {
+// import {browserHistory} from 'react-router'
+const TryForm = (props) => {
 
   const handleChange = (event) => {
     let result = {}; let id = event.target.id;
     let val = event.target.value ? parseFloat(event.target.value) : 0
     result[id] = val
+    // debugger
+    let date = new Date()
+
+    props.setValue({start_year: date.getYear()+1900})
+    props.setValue({start_month: date.getMonth()})
     props.setValue(result)
   }
 
@@ -24,12 +29,6 @@ const Form = (props) => {
     props.overWritePeriods(newPeriods)
   }
 
-  const handleEditCard =  (event) => {
-    event.preventDefault()
-    browserHistory.push('/cards/edit')
-    // props.current.card
-  }
-
   let user_cards
   if (props.current.user && props.current.user.credit_cards) {
     user_cards =
@@ -40,13 +39,13 @@ const Form = (props) => {
 
   return (
     <div className="container" id="tableform" >
-      <div><h3> Credit Card(s): </h3>  <select onChange={handleCard.bind(props)}>{user_cards}</select> <button onClick={handleEditCard.bind(props)}>Edit</button></div>
-      <h2>Default Financial Data</h2>
-      {props.data.payment &&
+      <h2>Input Your Debt</h2>
       <div>
-        <label id="userLabel">Monthly Payment: $</label><InputBoxDoneTyping id="payment" defaultValue={+(props.data.payment).toFixed(2)} placeholder="i.e.123.45" doneTyping={handleChange.bind(props)} doneTypingInterval={300} />
-        <label id="userLabel">Monthly Expenditure: $</label><InputBoxDoneTyping id="expenditure" defaultValue={+(props.data.expenditure).toFixed(2)} placeholder="i.e.123.45" doneTyping={handleChange.bind(props)} doneTypingInterval={300} />
-      </div>}
+        <label id="userLabel">Total Debt: $</label><input type="text" id="debt" placeholder="i.e.123.45" onChange={handleChange.bind(props)} />
+        <label id="userLabel">Interest Rate: $</label><input type="text" id="interest" placeholder="i.e.123.45" onChange={handleChange.bind(props)} />
+        <label id="userLabel">Monthly Payment: $</label><input type="text" id="payment" placeholder="i.e.123.45" onChange={handleChange.bind(props)} />
+        <label id="userLabel">Monthly Expenditure: $</label><input type="text" id="expenditure" placeholder="i.e.123.45" onChange={handleChange.bind(props)} />
+      </div>
       <br/>
     </div>
   )
@@ -56,4 +55,4 @@ function mapStateToProps(state){
   return {current: state.current, data: state.tableData}
 }
 
-export default connect(mapStateToProps, {overWritePeriods, setValue, setCard})(Form)
+export default connect(mapStateToProps, {overWritePeriods, setValue, setCard})(TryForm)

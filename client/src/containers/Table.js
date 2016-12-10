@@ -12,6 +12,16 @@ function parseData(data){
   return parts
 }
 
+function dataPresent(data){
+  console.log(data)
+  if (data){
+    return (data.payment && data.expenditure && data.interest && data.debt)
+  }
+  else {
+    return false
+  }
+}
+
 function allPeriods(periods, current_month, current_year) {
   for (let i = 0; i < periods.length; i++){
     let current_date = new Date(current_month+" 1, "+current_year.toString())
@@ -34,7 +44,8 @@ class Table extends React.Component {
     let total_interest = 0
     let payment_array = []
 
-    while (theDebt > 0 && i < 360){
+    while (theDebt > 0 && i < 360 && dataPresent(this.props.data)){
+      console.log("got here")
       let inPeriod = allPeriods(this.props.current.periods, current_month, current_year)
       if (inPeriod) {
         payment = inPeriod.payment
