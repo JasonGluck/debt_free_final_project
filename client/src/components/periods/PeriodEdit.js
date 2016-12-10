@@ -51,7 +51,7 @@ class PeriodEdit extends Component {
   render(){
     return(
       <div className="twelve columns" id="editperiodform">
-      <h2>Edit Period</h2>
+      <h2>Edit Period from {this.props.current.card.name} </h2>
       <form onSubmit={this.handleSubmit.bind(this)}>
         <p><label id="userLabel">Name (For Your Own Reference)</label><input type="text" id="period[name]" defaultValue={this.props.item.name} onChange={this.handleName.bind(this)}/></p>
         <p><label id="userLabel">Start Date</label><input type="month" id="period[start_date]" defaultValue={this.state.start_full_date} onChange={this.handleStartDate.bind(this)}/></p>

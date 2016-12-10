@@ -42,7 +42,7 @@ class NewPeriod extends Component {
   render(){
     return(
       <div className="twelve columns" id="newperiodform">
-      <h2>Add A Period</h2>
+      <h2>Add A Period to {this.props.current.card.name}</h2>
       <form onSubmit={this.handleSubmit.bind(this)}>
         <p><label id="userLabel">Name (For Your Own Reference)</label><input type="text" id="period[name]" placeholder="Christmas Bonus" onChange={this.handleName.bind(this)}/></p>
         <p><label id="userLabel">Start Date</label><input type="month" id="period[start_date]" placeholder="December" onChange={this.handleStartDate.bind(this)}/></p>

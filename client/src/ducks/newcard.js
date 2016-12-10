@@ -32,7 +32,6 @@ export function editCard(formData){
       data: {card: formData},
       headers: {authorization: localStorage.getItem('token')}
     }).done((response) => {
-      debugger
       dispatch(removeCardFromUser(response.card.id))
       dispatch(setCard(response.card))
       dispatch(addNewCardtoUser(response.card))

@@ -1,8 +1,8 @@
 import React from 'react'
 import InputBoxDoneTyping from 'react-input-box-done-typing'
 import {connect} from 'react-redux'
-// import { addPeriod } from '../ducks/userAccess'
-import { overWritePeriods, setCard, } from '../ducks/current'
+import { addPeriod } from '../ducks/userAccess'
+import { overWritePeriods, setCard } from '../ducks/current'
 import {setValue} from '../ducks/tableData'
 import {browserHistory} from 'react-router'
 const Form = (props) => {
@@ -24,6 +24,10 @@ const Form = (props) => {
     props.overWritePeriods(newPeriods)
   }
 
+  const handleNewPeriod = (props) => {
+    event.preventDefault()
+    browserHistory.push('periods/new')  }
+
   const handleEditCard =  (event) => {
     event.preventDefault()
     browserHistory.push('/cards/edit')
@@ -40,13 +44,14 @@ const Form = (props) => {
 
   return (
     <div className="container" id="tableform" >
-      <div><h3> Credit Card(s): </h3>  <select onChange={handleCard.bind(props)}>{user_cards}</select> <button onClick={handleEditCard.bind(props)}>Edit</button></div>
+      <div><h3> Credit Card(s): </h3>  <select defaultValue={props.current.card.name} onChange={handleCard.bind(props)}>{user_cards}</select> <button onClick={handleEditCard.bind(props)}>Edit</button></div>
       <h2>Default Financial Data</h2>
       {props.data.payment &&
       <div>
-        <label id="userLabel">Monthly Payment: $</label><InputBoxDoneTyping id="payment" defaultValue={+(props.data.payment).toFixed(2)} placeholder="i.e.123.45" doneTyping={handleChange.bind(props)} doneTypingInterval={300} />
-        <label id="userLabel">Monthly Expenditure: $</label><InputBoxDoneTyping id="expenditure" defaultValue={+(props.data.expenditure).toFixed(2)} placeholder="i.e.123.45" doneTyping={handleChange.bind(props)} doneTypingInterval={300} />
+        <label id="userLabel">Monthly Payment: $</label><InputBoxDoneTyping id="payment" defaultValue={(props.data.payment).toFixed(2)} placeholder="i.e.123.45" doneTyping={handleChange.bind(props)} doneTypingInterval={300} />
+        <label id="userLabel">Monthly Expenditure: $</label><InputBoxDoneTyping id="expenditure" defaultValue={(props.data.expenditure).toFixed(2)} placeholder="i.e.123.45" doneTyping={handleChange.bind(props)} doneTypingInterval={300} />
       </div>}
+      {props.current.user !== "" && <button onClick={handleNewPeriod.bind(props)}>Add A Period</button>}
       <br/>
     </div>
   )
@@ -56,4 +61,4 @@ function mapStateToProps(state){
   return {current: state.current, data: state.tableData}
 }
 
-export default connect(mapStateToProps, {overWritePeriods, setValue, setCard})(Form)
+export default connect(mapStateToProps, { overWritePeriods, setValue, setCard})(Form)
