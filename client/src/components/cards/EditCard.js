@@ -4,7 +4,7 @@ import {createCard, editCard} from '../../ducks/newcard'
 import { setCard, setPeriod } from '../../ducks/current'
 import { setValue } from '../../ducks/tableData'
 
-class NewCard extends Component {
+class EditCard extends Component {
   constructor(props){
     super(props)
     this.state = {name: this.props.current.card.name, debt: this.props.current.card.debt, interest_rate:this.props.current.card.interest_rate, user_id: this.props.current.user.id, id: this.props.current.card.id}
@@ -25,8 +25,6 @@ class NewCard extends Component {
   handleSubmit(event){
     event.preventDefault()
     this.props.setCard(this.state)
-    // let payment = this.state.payment_type === "%" ? this.state.payment * this.state.debt / 100 : this.state.payment
-    // this.props.setPeriod({payment: payment, expenditure: 0})
     const newValues = {debt: this.state.debt,
                     creditcard: this.state.name,
                     interest: this.state.interest_rate}
@@ -58,4 +56,4 @@ class NewCard extends Component {
 function mapStateToProps(state){
   return {newCard: state.newCard, current: state.current}
 }
-export default connect(mapStateToProps, { editCard,setCard,setPeriod,setValue })(NewCard)
+export default connect(mapStateToProps, { editCard,setCard,setPeriod,setValue })(EditCard)
