@@ -9,7 +9,7 @@ const TryForm = (props) => {
 
   const handleChange = (event) => {
     let result = {}; let id = event.target.id;
-    let val = event.target.value ? parseFloat(event.target.value) : 0
+    let val = event.target.value ? parseFloat(event.target.value) : null
     result[id] = val
     // debugger
     let date = new Date()
@@ -41,10 +41,10 @@ const TryForm = (props) => {
     <div className="container" id="tableform" >
       <h2>Input Your Debt</h2>
       <div>
-        <label id="userLabel">Total Debt: $</label><input type="text" id="debt" placeholder="i.e.123.45" onChange={handleChange.bind(props)} />
-        <label id="userLabel">Interest Rate: $</label><input type="text" id="interest" placeholder="i.e.123.45" onChange={handleChange.bind(props)} />
-        <label id="userLabel">Monthly Payment: $</label><input type="text" id="payment" placeholder="i.e.123.45" onChange={handleChange.bind(props)} />
-        <label id="userLabel">Monthly Expenditure: $</label><input type="text" id="expenditure" placeholder="i.e.123.45" onChange={handleChange.bind(props)} />
+        <label id="userLabel">Total Debt: $<input type="text" id="debt" placeholder="i.e.123.45" onChange={handleChange.bind(props)} /></label>
+        <label id="userLabel">Interest Rate: <input type="text" id="interest" placeholder="i.e.123.45" onChange={handleChange.bind(props)} />%</label>
+        <label id="userLabel">Monthly Payment: $<input type="text" id="payment" placeholder="i.e.123.45" onChange={handleChange.bind(props)} /></label>
+        <label id="userLabel">Monthly Expenditure: $<input type="text" id="expenditure" placeholder="i.e.123.45" onChange={handleChange.bind(props)} /></label>
       </div>
       <br/>
     </div>
