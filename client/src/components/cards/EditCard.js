@@ -41,10 +41,10 @@ class EditCard extends Component {
       <div className="twelve columns" id="forms">
       <h2>Edit Card</h2>
       <form onSubmit={this.handleSubmit.bind(this)} >
-         <p><label id="userLabel">Card Name</label><input type="text" id="card_name" defaultValue={this.props.current.card.name} placeholder="My Visa" onChange={this.handleName.bind(this)}/></p>
-         <p><label id="userLabel">Total Debt</label><input type="number" defaultValue={this.props.current.card.debt} id="debt" step=".01" onChange={this.handleDebt.bind(this)} /></p>
-         <p><label id="userLabel">Interest Rate</label><input type="number" defaultValue={this.props.current.card.interest_rate} id="interest_rate" step=".01" onChange={this.handleInterest.bind(this)} />%</p>
-        <p><input type="submit" onClick={this.setSubmit.bind(this)} id="submit" value="Save Card" /></p>
+         <label id="userLabel">Card Name <input type="text" id="card_name" defaultValue={this.props.current.card.name} placeholder="My Visa" onChange={this.handleName.bind(this)}/></label>
+         <label id="userLabel">Total Debt <input type="number" defaultValue={this.props.current.card.debt} id="debt" step=".01" onChange={this.handleDebt.bind(this)} /></label>
+         <label id="userLabel">Interest Rate <input type="number" defaultValue={this.props.current.card.interest_rate} id="interest_rate" step=".01" onChange={this.handleInterest.bind(this)} /></label>
+         <input type="submit" onClick={this.setSubmit.bind(this)} id="submit" value="Save Card" />
       </form>
       {this.props.newCard.error ? <h2 className="error">{this.props.newCard.error}</h2> : <span /> }
       </div>

@@ -44,12 +44,12 @@ class NewPeriod extends Component {
       <div className="twelve columns" id="newperiodform">
       <h2>Add A Period to {this.props.current.card.name}</h2>
       <form onSubmit={this.handleSubmit.bind(this)}>
-        <p><label id="userLabel">Name (For Your Own Reference)</label><input type="text" id="period[name]" placeholder="Christmas Bonus" onChange={this.handleName.bind(this)}/></p>
-        <p><label id="userLabel">Start Date</label><input type="month" id="period[start_date]" placeholder="December" onChange={this.handleStartDate.bind(this)}/></p>
-        <p><label id="userLabel">End Date</label><input type="month" id="period[end_date]" placeholder="January" onChange={this.handleEndDate.bind(this)}/></p>
-        <p><label id="userLabel">Monthly Expenditure</label><input type="number" id="period[expenditure]" step="100" onChange={this.handleExpenditure.bind(this)} />
-        <label id="userLabel">Monthly Payment</label><input type="number" id="period[payment]" step="100" onChange={this.handlePayment.bind(this)} /></p>
-        <p><input type="submit"/></p>
+        <label id="userLabel">Name<input type="text" id="period[name]" placeholder="Christmas Bonus" onChange={this.handleName.bind(this)}/></label>
+        <label id="userLabel">Start Date<input type="month" id="period[start_date]" placeholder="December" onChange={this.handleStartDate.bind(this)}/></label>
+        <label id="userLabel">End Date<input type="month" id="period[end_date]" placeholder="January" onChange={this.handleEndDate.bind(this)}/></label>
+        <label id="userLabel">Monthly Expenditure<input type="number" id="period[expenditure]" step="100" onChange={this.handleExpenditure.bind(this)} /></label>
+        <label id="userLabel">Monthly Payment<input type="number" id="period[payment]" step="100" onChange={this.handlePayment.bind(this)} /></label>
+        <input type="submit"/>
       </form>
         {this.props.newPeriod.error ? <h2 className="error">{this.props.newPeriod.error}</h2> : <span /> }
       </div>
