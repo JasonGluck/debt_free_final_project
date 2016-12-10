@@ -45,7 +45,6 @@ class Table extends React.Component {
     let payment_array = []
 
     while (theDebt > 0 && i < 360 && dataPresent(this.props.data)){
-      console.log("got here")
       let inPeriod = allPeriods(this.props.current.periods, current_month, current_year)
       if (inPeriod) {
         payment = inPeriod.payment

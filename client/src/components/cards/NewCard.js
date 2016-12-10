@@ -64,21 +64,19 @@ class NewCard extends Component {
       <div className="twelve columns" id="forms">
       <h2>Add A Card</h2>
       <form onSubmit={this.handleSubmit.bind(this)} >
-         <p><label id="userLabel">Card Name</label><input type="text" id="card_name" placeholder="My Visa" onChange={this.handleName.bind(this)}/></p>
-         <p><label id="userLabel">Total Debt</label><input type="number" id="debt" step=".01" onChange={this.handleDebt.bind(this)} /></p>
-         <p><label id="userLabel">Interest Rate</label><input type="number" id="interest_rate" step=".01" onChange={this.handleInterest.bind(this)} />%</p>
-         <p><label id="userLabel">Monthly Payment</label><input type="number" id="payment" step=".01" onChange={this.handlePayment.bind(this)} />
-         <p><label id="userLabel">Monthly Expenditure</label><input type="number" id="expenditure" step=".01" onChange={this.handleExpenditure.bind(this)} /></p>
-         <input type="radio" id="$" onChange={this.handleRadio.bind(this)} name="paymentType" defaultChecked={true} />$<input type="radio" id="%" name="paymentType" onChange={this.handleRadio.bind(this)} />%</p>
-         <p><input type="submit" onClick={this.setSubmit.bind(this)} id="rails" value="submit" /></p>
+         <label id="userLabel">Card Name <input type="text" id="card_name" placeholder="My Visa" onChange={this.handleName.bind(this)}/></label>
+         <label id="userLabel">Total Debt <input type="number" id="debt" step=".01" onChange={this.handleDebt.bind(this)} /></label>
+         <label id="userLabel">Interest Rate <input type="number" id="interest_rate" step=".01" onChange={this.handleInterest.bind(this)} />%</label>
+         <label id="userLabel">Monthly Payment <input type="number" id="payment" step=".01" onChange={this.handlePayment.bind(this)} /></label>
+         <label id="userLabel">Monthly Expenditure <input type="number" id="expenditure" step=".01" onChange={this.handleExpenditure.bind(this)} /><input type="radio" id="$" onChange={this.handleRadio.bind(this)} name="paymentType" defaultChecked={true} />$<input type="radio" id="%" name="paymentType" onChange={this.handleRadio.bind(this)} />%</label>
+         <input type="submit" onClick={this.setSubmit.bind(this)} id="rails" value="submit" />
       </form>
       {this.props.newCard.error ? <h2 className="error">{this.props.newCard.error}</h2> : <span /> }
       </div>
-      )
-
+    )
   }
-
 }
+
 function mapStateToProps(state){
   return {newCard: state.newCard, id: state.current.user.id}
 }
