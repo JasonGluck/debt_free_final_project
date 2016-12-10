@@ -13,6 +13,9 @@ import '../../public/css/App.css';
 
 class App extends Component {
   render() {
+//     Would nest some of these in a parent component
+//       Eg Card Details, and probably should just have a link to adding a new period, etc. where would show that other component.
+
     let contents = (
       <div>
         <div className="container">
@@ -46,6 +49,9 @@ class App extends Component {
 function mapStateToProps(state){
   return {data: state.tableData, current: state.current, userAccess: state.userAccess, signup: state.signup}
 }
+
+
+// JK: Why not use bindaction creators here?
 
 function mapDispatchToProps(dispatch){
   return {
