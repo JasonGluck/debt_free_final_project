@@ -1,13 +1,26 @@
-#navbar {
-  background-color: black;
-  width: 100%;
+#logo {
+  /*background-color: lightgrey;*/
+  /*width: 100%;*/
+  font-family: 'Sahitya', serif;
+  font-size: 2em;
+  padding: 0% 2%;
 }
 
 #title {
-  color: green;
   font-size: 2em;
   padding: 0% 2%;
   font-family: 'Sahitya', serif;
+  background-color: lightgrey;
+  margin: 2px;
+  color: black;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#title:hover {
+  background-color: grey;
+  cursor: pointer;
 }
 
 #navbar button {

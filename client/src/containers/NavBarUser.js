@@ -28,15 +28,15 @@ class NavBarUser extends React.Component {
     console.log(this.props)
     return (
       <div id="navbar">
-        <span id="title">Debt Free</span>
-        <button onClick={this.handleClick.bind(this)}>Sign Out</button>
-        <Link to="/cards/new">Add a Credit Card</Link>
-        <Link to="/periods/new">Add a Period</Link>
-        <Link to="/periods/show">View Periods</Link>
+        <span id="logo">DebtFree</span>
+        <a id="title" onClick={this.handleClick.bind(this)}>Sign Out</a>
+        <Link id="title" to="/cards/new">Add a Credit Card</Link>
+        <Link id="title" to="/periods/new">Add a Period</Link>
+        <Link id="title" to="/periods/show">View Periods</Link>
 
       </div>
     )
 }}
 
 export default connect(null, {resetCurrent, setValue})(NavBarUser)
-// 
+//
