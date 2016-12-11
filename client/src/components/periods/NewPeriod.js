@@ -41,24 +41,26 @@ class NewPeriod extends Component {
 
   render(){
     return(
-      <div className="twelve columns" id="newperiodform">
-      <h2>Add A Period to {this.props.current.card.name}</h2>
-      <form onSubmit={this.handleSubmit.bind(this)}>
-        <label id="userLabel">Name<input type="text" id="period[name]" placeholder="Christmas Bonus" onChange={this.handleName.bind(this)}/></label>
-        <label id="userLabel">Start Date<input type="month" id="period[start_date]" placeholder="December" onChange={this.handleStartDate.bind(this)}/></label>
-        <label id="userLabel">End Date<input type="month" id="period[end_date]" placeholder="January" onChange={this.handleEndDate.bind(this)}/></label>
-        <label id="userLabel">Monthly Expenditure<input type="number" id="period[expenditure]" step="100" onChange={this.handleExpenditure.bind(this)} /></label>
-        <label id="userLabel">Monthly Payment<input type="number" id="period[payment]" step="100" onChange={this.handlePayment.bind(this)} /></label>
-        <input type="submit"/>
-      </form>
-        {this.props.newPeriod.error ? <h2 className="error">{this.props.newPeriod.error}</h2> : <span /> }
+      <div className="allforms">
+        <div className="twelve columns" id="newperiodform">
+        <h2>Add A Period to {this.props.current.card.name}</h2>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <label id="userLabel">Name<input type="text" id="period[name]" placeholder="Christmas Bonus" onChange={this.handleName.bind(this)}/></label>
+          <label id="userLabel">Start Date<input type="month" id="period[start_date]" placeholder="December" onChange={this.handleStartDate.bind(this)}/></label>
+          <label id="userLabel">End Date<input type="month" id="period[end_date]" placeholder="January" onChange={this.handleEndDate.bind(this)}/></label>
+          <label id="userLabel">Monthly Expenditure<input type="number" id="period[expenditure]" step="100" onChange={this.handleExpenditure.bind(this)} /></label>
+          <label id="userLabel">Monthly Payment<input type="number" id="period[payment]" step="100" onChange={this.handlePayment.bind(this)} /></label>
+          <input type="submit"/>
+        </form>
+          {this.props.newPeriod.error ? <h2 className="error">{this.props.newPeriod.error}</h2> : <span /> }
+        </div>
       </div>
-      )
+    )
   }
 }
+
 function mapStateToProps(state){
   return {newPeriod: state.newPeriod, current: state.current}
 }
-
 
 export default connect(mapStateToProps, { createPeriod, addPeriodToUser })(NewPeriod)

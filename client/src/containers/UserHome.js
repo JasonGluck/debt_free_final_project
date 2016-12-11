@@ -10,13 +10,13 @@ constructor(props){
 }
 
 render(){
-  return (<div> 
+  return (<div>
 
   <NavBarUser />
-    <h1>Currently Showing: {this.props.currentCard}</h1>
+    <h3 className="allforms">Currently Showing: {this.props.currentCard}</h3>
     {this.props.children}
     <Form />
-    <Table /> 
+    <Table />
   </div>)
 }
 

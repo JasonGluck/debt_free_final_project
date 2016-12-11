@@ -18,13 +18,13 @@ class SignIn extends Component {
 
   handleSubmit(event){
     event.preventDefault()
-    
+
     this.props.locateAndLoginUser(this.state)
   }
 
   render(){
     return(
-      <div id="forms">
+      <div className="allforms">
         <form onSubmit={this.handleSubmit.bind(this)}>
             <h2> Sign In </h2>
             <p><label id="userLabel"> Email </label>

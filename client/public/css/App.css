@@ -116,3 +116,7 @@ ul li {
   width: 25%;
   margin: 0 0 1% 20%;
 }
+
+#navbar {
+  text-align: center;
+}
