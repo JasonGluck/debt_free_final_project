@@ -36,6 +36,7 @@ function allPeriods(periods, current_month, current_year) {
 
 class Table extends React.Component {
   render() {
+    debugger
     let future_data = []
     let theDebt = this.props.data.debt
     let current_month = parseFloat(this.props.data.start_month) === NaN ? this.props.data.start_month : months[this.props.data.start_month]
