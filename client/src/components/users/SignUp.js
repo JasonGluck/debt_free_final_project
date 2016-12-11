@@ -29,7 +29,7 @@ class Signup extends Component {
   render(){
 
     return(
-      <div id="forms">
+      <div className="allforms">
         <form id="userAccess" onSubmit={this.handleSubmit.bind(this)}>
             <h2>Sign Up</h2>
             <p><label id="userLabel"> Name </label>

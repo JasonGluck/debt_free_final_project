@@ -4,8 +4,6 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from './ducks'
-// import { setInitial } from './ducks/userAccess.js'
- // SignIn, SignOut  from '.'
 import App from './containers/App.js';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import '../public/css/table.css';
@@ -22,5 +20,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-
-

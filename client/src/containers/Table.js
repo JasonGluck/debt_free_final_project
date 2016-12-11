@@ -13,7 +13,6 @@ function parseData(data){
 }
 
 function dataPresent(data){
-  console.log(data)
   if (data){
     return (data.payment && data.expenditure && data.interest && data.debt)
   }

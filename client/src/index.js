@@ -4,11 +4,9 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from './ducks'
-// import { setInitial } from './ducks/userAccess.js'
- import SignIn from './components/users/SignIn'
- import SignUp from './components/users/SignUp'
- import TryCard from './components/cards/TryCard'
-
+import SignIn from './components/users/SignIn'
+import SignUp from './components/users/SignUp'
+import TryCard from './components/cards/TryCard'
 import NavBarGuest from './containers/NavBarGuest'
 import Table from './containers/Table'
 import NewPeriod from './components/periods/NewPeriod'
@@ -16,9 +14,6 @@ import EditPeriod from './components/periods/PeriodEdit'
 import NewCard from './components/cards/NewCard'
 import EditCard from './components/cards/EditCard'
 import PeriodList from './components/periods/PeriodList'
- // , SignOut  from '.'
-// import App from './containers/App.js';
-
 import { composeWithDevTools } from 'redux-devtools-extension';
 import '../public/css/table.css';
 import GuestHome from './containers/GuestHome'

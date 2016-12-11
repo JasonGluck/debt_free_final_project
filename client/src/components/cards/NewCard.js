@@ -61,17 +61,19 @@ class NewCard extends Component {
 
   render(){
     return(
-      <div className="twelve columns" id="forms">
-      <h2>Add A Card</h2>
-      <form onSubmit={this.handleSubmit.bind(this)} >
-         <label id="userLabel">Card Name <input type="text" id="card_name" placeholder="My Visa" onChange={this.handleName.bind(this)}/></label>
-         <label id="userLabel">Total Debt <input type="number" id="debt" step=".01" onChange={this.handleDebt.bind(this)} /></label>
-         <label id="userLabel">Interest Rate <input type="number" id="interest_rate" step=".01" onChange={this.handleInterest.bind(this)} />%</label>
-         <label id="userLabel">Monthly Payment <input type="number" id="payment" step=".01" onChange={this.handlePayment.bind(this)} /></label>
-         <label id="userLabel">Monthly Expenditure <input type="number" id="expenditure" step=".01" onChange={this.handleExpenditure.bind(this)} /><input type="radio" id="$" onChange={this.handleRadio.bind(this)} name="paymentType" defaultChecked={true} />$<input type="radio" id="%" name="paymentType" onChange={this.handleRadio.bind(this)} />%</label>
-         <input type="submit" onClick={this.setSubmit.bind(this)} id="rails" value="submit" />
-      </form>
-      {this.props.newCard.error ? <h2 className="error">{this.props.newCard.error}</h2> : <span /> }
+      <div className="allforms">
+        <div className="twelve columns" id="forms">
+        <h2>Add A Card</h2>
+        <form onSubmit={this.handleSubmit.bind(this)} >
+           <label id="userLabel">Card Name <input type="text" id="card_name" placeholder="My Visa" onChange={this.handleName.bind(this)}/></label>
+           <label id="userLabel">Total Debt <input type="number" id="debt" step=".01" onChange={this.handleDebt.bind(this)} /></label>
+           <label id="userLabel">Interest Rate <input type="number" id="interest_rate" step=".01" onChange={this.handleInterest.bind(this)} />%</label>
+           <label id="userLabel">Monthly Payment <input type="number" id="payment" step=".01" onChange={this.handlePayment.bind(this)} /></label>
+           <label id="userLabel">Monthly Expenditure <input type="number" id="expenditure" step=".01" onChange={this.handleExpenditure.bind(this)} /><input type="radio" id="$" onChange={this.handleRadio.bind(this)} name="paymentType" defaultChecked={true} />$<input type="radio" id="%" name="paymentType" onChange={this.handleRadio.bind(this)} />%</label>
+           <input type="submit" onClick={this.setSubmit.bind(this)} id="rails" value="submit" />
+        </form>
+        {this.props.newCard.error ? <h2 className="error">{this.props.newCard.error}</h2> : <span /> }
+        </div>
       </div>
     )
   }

@@ -416,3 +416,11 @@ there.
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
+
+.allforms {
+  text-align: center;
+}
+
+#navbar {
+  text-align: center;
+}
