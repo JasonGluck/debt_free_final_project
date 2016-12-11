@@ -80,7 +80,7 @@ class Table extends React.Component {
     }
 
     return (
-      <div>
+      <div className="allforms">
         <Results debt={this.props.data.debt} i={i} total_interest={parseData(total_interest)}/>
         <Chart className="six columns" id="chart" tableData={this.props} futureData={future_data} data={payment_array}/>
       </div>
