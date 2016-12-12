@@ -17,7 +17,7 @@ class NavBarUser extends React.Component {
     event.preventDefault()
     localStorage.removeItem("token")
     this.props.resetCurrent()
-    this.props.setValue({debt: null, start_month: null, start_year: null, creditcard: null, payment:null, expenditure: null, interest:null})
+    this.props.setValue({debt:null, start_month:null, start_year:null, creditcard:null, name: null, payment:null, expenditure:null, interest:null, interest_rate:null})
     browserHistory.push('/')
   }
   render() {

@@ -3,6 +3,7 @@ import NavBarUser from './NavBarUser.js'
 import Table from './Table'
 import Form from '../components/Form'
 import {connect} from 'react-redux'
+import {persistStore} from 'redux-persist'
 class UserHome extends Component {
 
 constructor(props){
@@ -10,14 +11,14 @@ constructor(props){
 }
 
 render(){
-  return (<div>
-
-  <NavBarUser />
-    <h3 className="allforms">Currently Showing: {this.props.currentCard}</h3>
-    {this.props.children}
-    <Form />
-    <Table />
-  </div>)
+  return (
+    <div>
+      <NavBarUser />
+        {this.props.children}
+        <Form />
+        <Table />
+    </div>
+  )
 }
 
 }

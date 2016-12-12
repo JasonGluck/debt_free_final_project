@@ -11,7 +11,7 @@ class NewCard extends Component {
     super(props)
     let submitName
     let id = this.props.id
-    this.state = {name: '', debt: '', interest_rate:'', expenditure: 0, payment: '', user_id: id, payment_type: '$'}
+    this.state = {creditcard: '', debt: '', interest_rate:'', expenditure: 0, payment: '', user_id: id, payment_type: '$'}
   }
 
   handleName(event){

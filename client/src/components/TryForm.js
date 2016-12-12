@@ -11,7 +11,6 @@ const TryForm = (props) => {
     let result = {}; let id = event.target.id;
     let val = event.target.value ? parseFloat(event.target.value) : null
     result[id] = val
-    // debugger
     let date = new Date()
 
     props.setValue({start_year: date.getYear()+1900})

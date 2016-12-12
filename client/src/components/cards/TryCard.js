@@ -4,11 +4,9 @@ import Table from '../../containers/Table'
 import {connect} from 'react-redux'
 
 class TryCard extends React.Component {
-  constructor(props) {
-    super(props)
-  }
 
   checkValues(){
+    console.log(this.props.data)
     if (Object.keys(this.props.data).length < 6 || Object.values(this.props.data).includes(null)){
       return false
     }

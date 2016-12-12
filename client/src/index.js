@@ -2,13 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
+import {persistStore, autoRehydrate} from 'redux-persist'
 import thunk from 'redux-thunk'
 import rootReducer from './ducks'
 import SignIn from './components/users/SignIn'
 import SignUp from './components/users/SignUp'
 import TryCard from './components/cards/TryCard'
-import NavBarGuest from './containers/NavBarGuest'
-import Table from './containers/Table'
 import NewPeriod from './components/periods/NewPeriod'
 import EditPeriod from './components/periods/PeriodEdit'
 import NewCard from './components/cards/NewCard'
@@ -21,7 +20,8 @@ import UserForms from './containers/UserForms'
 import UserHome from './containers/UserHome'
 import { Router, Route, browserHistory } from 'react-router'
 
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)), autoRehydrate())
+persistStore(store)
 
 ReactDOM.render(
   <Provider store={store}>

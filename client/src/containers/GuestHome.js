@@ -9,12 +9,12 @@ constructor(props){
 }
 
 render(){
-  return (<div> 
-
-  <NavBarGuest />
-    {this.props.children}
-
-  </div>)
+  return (
+    <div>
+      <NavBarGuest />
+      {this.props.children}
+    </div>
+  )
 }
 
 }
