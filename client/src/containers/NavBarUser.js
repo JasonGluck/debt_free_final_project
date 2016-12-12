@@ -25,8 +25,7 @@ class NavBarUser extends React.Component {
     return (
       <div id="navbar">
         <span id="logo">DebtFree</span>
-        {this.props.current.card && <Link id="title" to="/user">Home</Link>}
-        {!this.props.current.card && <Link id="title" to="/cards/new">Home</Link>}
+        {this.props.current.card ? <Link id="title" to="/user">Home</Link> : <Link id="title" to="/cards/new">Home</Link>}        {!this.props.current.card && <Link id="title" to="/cards/new">Home</Link>}
         <Link id="title" to="/cards/new">Add a Credit Card</Link>
         {this.props.current.card && <Link id="title" to="/periods/new">Add a Period</Link>}
         {this.props.current.periods.length != 0 && <Link id="title" to="/periods/show">View Periods</Link>}
