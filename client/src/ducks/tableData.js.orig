@@ -1,0 +1,25 @@
+export default (state={}, action) => {
+  switch (action.type) {
+<<<<<<< ec5525fbed47a1ffda2545d3c8e54fd0db65708a
+    case 'REMOVE_VALUES':
+    return {}
+=======
+    // case 'SET_STATE':
+    //   return {showSignIn: false, showSignUp: false}
+    case 'REMOVE_VALUES':
+      return {}
+>>>>>>> Persistence solved through redux-persistance module
+    case 'SET_VALUE':
+      return Object.assign({}, state, action.payload)
+    default:
+      return state
+  }
+}
+
+// export const setInitial = () => ({type: 'SET_STATE'})
+export const setValue = (obj) => ({type: 'SET_VALUE', payload: obj})
+<<<<<<< ec5525fbed47a1ffda2545d3c8e54fd0db65708a
+export const removeValues = () => ({type: 'REMOVE_VALUES'})
+=======
+export const removeValues = () => ({type: 'REMOVE_VALUES'})
+>>>>>>> Persistence solved through redux-persistance module

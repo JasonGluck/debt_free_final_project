@@ -1,0 +1,34 @@
+import React from 'react'
+import TryForm from '../TryForm'
+import Table from '../../containers/Table'
+import {connect} from 'react-redux'
+
+class TryCard extends React.Component {
+
+  checkValues(){
+<<<<<<< ec5525fbed47a1ffda2545d3c8e54fd0db65708a
+    if (Object.keys(this.props.data).length < 7 || Object.values(this.props.data).includes(null)){
+=======
+    console.log(this.props.data)
+    if (Object.keys(this.props.data).length < 6 || Object.values(this.props.data).includes(null)){
+>>>>>>> Persistence solved through redux-persistance module
+      return false
+    } 
+    return true
+  }
+
+  render() {
+    return (
+      <div>
+        <TryForm />
+        {this.checkValues() && <Table />}
+      </div>
+    )
+  }
+}
+
+function mapStateToProps(state){
+  return {data: state.tableData}
+}
+
+export default connect(mapStateToProps)(TryCard)
