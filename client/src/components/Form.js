@@ -49,8 +49,8 @@ const Form = (props) => {
         <h2>Default Financial Data</h2>
         {props.data.payment &&
         <div>
-          <label id="userLabel">Monthly Payment: $<InputBoxDoneTyping id="payment" defaultValue={(props.data.payment).toFixed(2)} placeholder="i.e.123.45" doneTyping={handleChange.bind(props)} doneTypingInterval={300} /></label>
-          <label id="userLabel">Monthly Expenditure: $<InputBoxDoneTyping id="expenditure" defaultValue={(props.data.expenditure).toFixed(2)} placeholder="i.e.123.45" doneTyping={handleChange.bind(props)} doneTypingInterval={300} /></label>
+          <label id="userLabel">Monthly Payment: $<InputBoxDoneTyping id="payment" defaultValue={+(props.data.payment).toFixed(2)} placeholder="i.e.123.45" doneTyping={handleChange.bind(props)} doneTypingInterval={300} /></label>
+          <label id="userLabel">Monthly Expenditure: $<InputBoxDoneTyping id="expenditure" defaultValue={+(props.data.expenditure).toFixed(2)} placeholder="i.e.123.45" doneTyping={handleChange.bind(props)} doneTypingInterval={300} /></label>
         </div>}
       </div>
     </div>
