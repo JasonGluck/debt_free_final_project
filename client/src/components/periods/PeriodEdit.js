@@ -33,7 +33,6 @@ class PeriodEdit extends Component {
     this.setState({name: event.target.value})
   }
 
-
   handleExpenditure(event){
     this.setState({expenditure: event.target.value})
   }

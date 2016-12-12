@@ -63,7 +63,7 @@ import {connect} from 'react-redux'
 
   return(
     <div className="allforms">
-      <div className="periodList twelve columns">
+      <div className="periodList">
         <h2>Payment Periods</h2>
           <ul>
             {showThis}
