@@ -41,7 +41,6 @@ import {connect} from 'react-redux'
   }
 
   render(){
-
     let shownPeriod, showThis
     if (this.props.current.user){
       shownPeriod = this.props.current.user.periods.filter(period=>{
@@ -64,7 +63,7 @@ import {connect} from 'react-redux'
   return(
     <div className="allforms">
       <div className="periodList">
-        <h2>Payment Periods</h2>
+        {this.props.current.periods.length === 0 ? <h2>Please Add a Period</h2> : <h2>Payment Periods</h2>}
           <ul>
             {showThis}
           </ul>

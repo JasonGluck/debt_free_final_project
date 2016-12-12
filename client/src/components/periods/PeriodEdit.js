@@ -7,7 +7,6 @@ class PeriodEdit extends Component {
   constructor(props){
     super(props)
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    //I HATE THIS
     let edited_start_month = (months.indexOf(this.props.item.start_month)+1).toString()
     edited_start_month = (edited_start_month.length < 2) ? ("0" + edited_start_month) : edited_start_month
     let edited_end_month = (months.indexOf(this.props.item.end_month)+1).toString()
@@ -50,7 +49,6 @@ class PeriodEdit extends Component {
   render(){
     return(
       <div className="twelve columns" id="editperiodform">
-      <h2>Edit Period from {this.props.current.card.name} </h2>
       <form onSubmit={this.handleSubmit.bind(this)}>
         <label id="userLabel">Name<input type="text" id="period[name]" defaultValue={this.props.item.name} onChange={this.handleName.bind(this)}/></label>
         <label id="userLabel">Start Date<input type="month" id="period[start_date]" defaultValue={this.state.start_full_date} onChange={this.handleStartDate.bind(this)}/></label>

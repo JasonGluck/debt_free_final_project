@@ -25,7 +25,7 @@ class NavBarUser extends React.Component {
     return (
       <div id="navbar">
         <span id="logo">DebtFree</span>
-        <Link id="title" to="/cards/new">Home</Link>
+        <Link id="title" to="/user">Home</Link>
         <Link id="title" to="/cards/new">Add a Credit Card</Link>
         <Link id="title" to="/periods/new">Add a Period</Link>
         <Link id="title" to="/periods/show">View Periods</Link>

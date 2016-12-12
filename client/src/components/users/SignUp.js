@@ -21,13 +21,11 @@ class Signup extends Component {
   }
 
   handleSubmit(event){
-    debugger
     event.preventDefault()
     this.props.createUser(this.state)
   }
 
   render(){
-
     return(
       <div className="allforms">
         <form id="userAccess" onSubmit={this.handleSubmit.bind(this)}>
