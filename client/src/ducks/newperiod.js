@@ -12,7 +12,9 @@ export function createPeriod(formData){
       data: {period: formData},
       headers: {authorization: localStorage.getItem('token')}
     }).then((response) => {
+
       dispatch(setPeriod([response.period]))
+      dispatch(addPeriodToUser(response.period))
       dispatch(foundPeriod())
       browserHistory.push('/periods/show')
     }).catch((response)=>{

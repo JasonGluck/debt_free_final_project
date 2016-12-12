@@ -32,7 +32,7 @@ import {connect} from 'react-redux'
   editShownPeriod(event){
     let thing = this.props.current.periods.filter(item=>{ if (item.id == event.target.id)
       {return item}})
-      debugger
+      
       if (thing.length >= 1)
           {this.props.removePeriodFromCurrent(event.target.id)}
       else {
