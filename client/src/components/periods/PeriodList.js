@@ -32,12 +32,13 @@ import {connect} from 'react-redux'
   editShownPeriod(event){
     let thing = this.props.current.periods.filter(item=>{ if (item.id == event.target.id)
       {return item}})
-  if (thing.length >= 1)
-      {this.props.removePeriodFromCurrent(event.target.id)}
-  else {
-    let period = this.props.current.user.periods.filter(item=>{return item.id == event.target.id})
-    this.props.setPeriod(period)
-    }
+      debugger
+      if (thing.length >= 1)
+          {this.props.removePeriodFromCurrent(event.target.id)}
+      else {
+        let period = this.props.current.user.periods.filter(item=>{return item.id == event.target.id})
+        this.props.setPeriod(period)
+        }
   }
 
   render(){
@@ -51,8 +52,7 @@ import {connect} from 'react-redux'
       showThis = shownPeriod.map((item, index)=>{
         return (
           <div key={index}>
-            <h4 className="clickable" onClick={this.showChildren.bind(this)}>{item.name}</h4>
-            <input type="checkbox" defaultChecked="true" onClick={this.editShownPeriod.bind(this)} id={item.id} />
+            <span><h4 className="clickable" onClick={this.showChildren.bind(this)}>{item.name}</h4><input type="checkbox" defaultChecked="true" onClick={this.editShownPeriod.bind(this)} id={item.id} /></span>
             {((this.state.showEditForm === true) && (this.state.editChild == item.id)) ? <PeriodEdit item={item} submittedPeriodDetails={this.submittedPeriodDetails.bind(this)} /> :
              <SinglePeriod editButton={this.editPeriodDetails.bind(this)} item={item} showChildren={this.state.showChildren} calledChild={this.state.calledChild} />}
           </div>

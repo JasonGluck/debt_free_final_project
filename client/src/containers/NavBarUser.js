@@ -21,7 +21,6 @@ class NavBarUser extends React.Component {
     browserHistory.push('/')
   }
   render() {
-    console.log(this.props)
     return (
       <div id="navbar">
         <span id="logo">DebtFree</span>
