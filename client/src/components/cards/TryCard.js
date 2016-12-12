@@ -7,7 +7,7 @@ class TryCard extends React.Component {
 
   checkValues(){
     console.log(this.props.data)
-    if (Object.keys(this.props.data).length < 6 || Object.values(this.props.data).includes(null)){
+    if (Object.keys(this.props.data).length < 7 || Object.values(this.props.data).includes(null)){
       return false
     }
     return true

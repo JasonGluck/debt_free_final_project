@@ -12,7 +12,7 @@ const TryForm = (props) => {
     let val = event.target.value ? parseFloat(event.target.value) : null
     result[id] = val
     let date = new Date()
-
+    props.setValue({creditcard: "fake"})
     props.setValue({start_year: date.getYear()+1900})
     props.setValue({start_month: date.getMonth()})
     props.setValue(result)

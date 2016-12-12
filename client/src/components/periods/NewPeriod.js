@@ -36,7 +36,6 @@ class NewPeriod extends Component {
   handleSubmit(event){
     event.preventDefault()
     this.props.createPeriod(this.state)
-    this.props.addPeriodToUser(this.state)
   }
 
   render(){
