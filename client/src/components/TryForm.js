@@ -39,9 +39,9 @@ const TryForm = (props) => {
   return (
     <div className="allforms">
       <div className="container" id="tableform" >
-        <h2>Input Your Debt</h2>
+        <h2>What's Your Situation?</h2>
         <div>
-          <label id="userLabel">Total Debt: $<input type="number" id="debt" placeholder="i.e.123.45" onChange={handleChange.bind(props)} /></label>
+          <label id="userLabel">Debt: $<input type="number" id="debt" placeholder="i.e.123.45" onChange={handleChange.bind(props)} /></label>
           <label id="userLabel">Interest Rate: <input type="number" id="interest" placeholder="i.e.123.45" onChange={handleChange.bind(props)} />%</label>
           <label id="userLabel">Monthly Payment: $<input type="number" id="payment" placeholder="i.e.123.45" onChange={handleChange.bind(props)} /></label>
           <label id="userLabel">Monthly Expenditure: $<input type="number" id="expenditure" placeholder="i.e.123.45" onChange={handleChange.bind(props)} /></label>
