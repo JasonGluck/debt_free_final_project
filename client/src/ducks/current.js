@@ -43,7 +43,7 @@ export function overWritePeriods(input){
 }
 
 export function deletePeriodFromRails(input){
-  debugger
+  
   return function(dispatch){
     $.ajax({
       url: `http://localhost:3000/periods/` + input,
