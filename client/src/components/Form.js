@@ -12,6 +12,7 @@ const Form = (props) => {
     let val = event.target.value ? parseFloat(event.target.value) : 0
     // debugger
     result[id] = val
+    // if val === "" || val === 0
     props.setValue(result)
   }
 
@@ -36,19 +37,24 @@ const Form = (props) => {
   }
 
   let user_cards
+  let current_card = props.current.card.name
   if (props.current.user && props.current.user.credit_cards) {
     user_cards =
     props.current.user.credit_cards.map((card, i)=> {
-      return (<option key={i} id={card.id}>{card.name}</option>)
+      // if (card.name === current_card)
+      //   {return (<option selected="selected" key={i} id={card.id}>{card.name}</option>)}
+      // else {
+        return (<option key={i} id={card.id}>{card.name}</option>)
+      // }
     })
   }
 
   return (
     <div className="allforms">
       <div className="container" id="tableform" >
-        <div><h3> Credit Card(s): </h3>  <select defaultValue={props.current.card.name} onChange={handleCard.bind(props)}>{user_cards}</select> <button onClick={handleEditCard.bind(props)}>Edit</button></div>
+        <div><h3> Credit Card(s): </h3>  <select value={current_card} onChange={handleCard.bind(props)}>{user_cards}</select> <button onClick={handleEditCard.bind(props)}>Edit</button></div>
         <h2>Default Financial Data</h2>
-        {props.data.payment &&
+        {props.current.card &&
         <div>
           <label id="userLabel">Monthly Payment: </label>$<InputBoxDoneTyping id="payment" defaultValue={+(props.data.payment).toFixed(2)} placeholder="i.e.123.45" doneTyping={handleChange.bind(props)} doneTypingInterval={300} />
           <label id="userLabel">Monthly Expenditure: </label>$<InputBoxDoneTyping id="expenditure" defaultValue={+(props.data.expenditure).toFixed(2)} placeholder="i.e.123.45" doneTyping={handleChange.bind(props)} doneTypingInterval={300} />

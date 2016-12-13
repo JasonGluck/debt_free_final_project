@@ -9,7 +9,6 @@ class TryForm extends React.Component  {
   componentWillMount(){
     this.props.resetCurrent()
     this.props.removeValues()
-
   }
   constructor(props){
     super(props)

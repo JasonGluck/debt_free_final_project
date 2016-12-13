@@ -13,8 +13,9 @@ function parseData(data){
 }
 
 function dataPresent(data){
+  // make it so that all fields are also truthy when === 0 
   if (data){
-    return (data.payment && data.expenditure && data.interest && data.debt)
+    return (data.payment.toString() && data.expenditure.toString() && data.interest.toString() && data.debt.toString())
   }
   else {
     return false
@@ -42,7 +43,7 @@ class Table extends React.Component {
   componentWillReceiveProps(){
     // alert("now")
   }
-  
+
   render() {
     let future_data = []
     let theDebt = this.props.data.debt
@@ -52,7 +53,7 @@ class Table extends React.Component {
     let total_interest = 0
     let payment_array = []
 
-    while (theDebt > 0 && i < 360 && dataPresent(this.props.data)){
+    while (theDebt >= 0 && i < 360 && dataPresent(this.props.data)){
       let inPeriod = allPeriods(this.props.current.periods, current_month, current_year)
       if (inPeriod) {
         payment = inPeriod.payment
