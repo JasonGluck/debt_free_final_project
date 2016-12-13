@@ -54,7 +54,7 @@ const Form = (props) => {
       <div className="container" id="tableform" >
         <div><h3> Credit Card(s): </h3>  <select value={current_card} onChange={handleCard.bind(props)}>{user_cards}</select> <button onClick={handleEditCard.bind(props)}>Edit</button></div>
         <h2>Default Financial Data</h2>
-        {props.current.card &&
+        {Object.keys(props.data).length >= 7  &&
         <div>
           <label id="userLabel">Monthly Payment: </label>$<InputBoxDoneTyping id="payment" defaultValue={+(props.data.payment).toFixed(2)} placeholder="i.e.123.45" doneTyping={handleChange.bind(props)} doneTypingInterval={300} />
           <label id="userLabel">Monthly Expenditure: </label>$<InputBoxDoneTyping id="expenditure" defaultValue={+(props.data.expenditure).toFixed(2)} placeholder="i.e.123.45" doneTyping={handleChange.bind(props)} doneTypingInterval={300} />

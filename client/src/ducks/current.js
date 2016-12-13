@@ -7,6 +7,7 @@ export default (state={user: "", card: "", periods: []}, action) => {
     case 'ADD_CARD_TO_USER':
       return{...state, user: {...state.user, credit_cards: [...state.user.credit_cards, action.payload]} }
     case 'SET_CARD':
+      // debugger
       return {...state, card: action.payload}
     case 'ADD_PERIOD_TO_USER':
       return{...state, user: {...state.user, periods: [...state.user.periods, action.payload]} }
@@ -19,6 +20,7 @@ export default (state={user: "", card: "", periods: []}, action) => {
       var filteredUser = Object.assign(state.user, {}, {periods: filteredPeriods})
       return  Object.assign({}, state, {user: filteredUser})
     case 'SET_PERIOD':
+      // debugger
       return {...state, periods: [...state.periods, ...action.payload]}
     case 'OVERWRITE_PERIODS':
       return {...state, periods: action.payload}
@@ -85,6 +87,7 @@ export function setCurrentUser(input){
 }
 
 export function setCard(input){
+  // debugger
   return {type: 'SET_CARD', payload: input}
 }
 

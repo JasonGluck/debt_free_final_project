@@ -6,10 +6,12 @@ import { overWritePeriods, setCard, resetCurrent} from '../ducks/current'
 import {setValue, removeValues} from '../ducks/tableData'
 
 class TryForm extends React.Component  {
+  
   componentWillMount(){
     this.props.resetCurrent()
     this.props.removeValues()
   }
+  
   constructor(props){
     super(props)
   }

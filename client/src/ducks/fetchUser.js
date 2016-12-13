@@ -13,18 +13,24 @@ export function fetchUser(id){
       data: id,
       headers: {authorization: localStorage.getItem('token')}
     }).done((response) => {
+      // debugger
       dispatch(loginUser())
       dispatch(setCurrentUser(response))
       if (response.credit_cards.length > 0 ){
-        let recentCard = response.credit_cards[0]
-        let recentCardPeriods = response.periods.filter(per=>{
+        // 
+        var recentCard = response.credit_cards[0]
+        var recentCardPeriods = response.periods.filter(per=>{
           return per.credit_card_id === recentCard.id
         })
-        let recentPeriod = recentCardPeriods[recentCardPeriods.length-1]
+        // let recentPeriod = recentCardPeriods[recentCardPeriods.length-1]
+        // debugger
         dispatch(setCard(recentCard))
+        // debugger
         dispatch(setPeriod(recentCardPeriods))
-        let averageExpenditure = recentCardPeriods.reduce((a,b)=>{return a + b.expenditure}, 0)/recentCardPeriods.length
-        let averagePayment = recentCardPeriods.reduce((a,b)=>{return a + b.payment}, 0)/recentCardPeriods.length
+        // debugger
+        var averageExpenditure = recentCardPeriods.reduce((a,b)=>{return a + b.expenditure}, 0)/recentCardPeriods.length
+        var averagePayment = recentCardPeriods.reduce((a,b)=>{return a + b.payment}, 0)/recentCardPeriods.length
+        // debugger
         const newValues = {debt: recentCard.debt,
                         start_month: new Date().getMonth(),
                         start_year: new Date().getFullYear(),
@@ -38,7 +44,7 @@ export function fetchUser(id){
         browserHistory.push('/user')
       }
     else {
-    browserHistory.push('/cards/new')}
+      browserHistory.push('/cards/new')}
     })
   }
 }
