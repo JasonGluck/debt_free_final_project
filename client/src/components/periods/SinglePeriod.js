@@ -28,7 +28,6 @@ class SinglePeriod extends Component {
           </ul>  : <span></span> }</span>
     )
   }
-
 }
 
 const connector = connect(null, {deletePeriodFromRails})
