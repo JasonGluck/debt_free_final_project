@@ -33,7 +33,16 @@ function allPeriods(periods, current_month, current_year) {
   return false
 }
 
-class Table extends React.Component {
+class Table extends React.Component { 
+
+  componentWillMount(){
+    setTimeout(3000)
+  }
+
+  componentWillReceiveProps(){
+    // alert("now")
+  }
+  
   render() {
     let future_data = []
     let theDebt = this.props.data.debt
