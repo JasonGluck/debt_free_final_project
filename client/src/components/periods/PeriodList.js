@@ -52,7 +52,7 @@ import {connect} from 'react-redux'
       showThis = shownPeriod.map((item, index)=>{
         return (
           <div key={index}>
-            <span><h4 className="clickable" onClick={this.showChildren.bind(this)}>{item.name}</h4><input type="checkbox" defaultChecked="true" onClick={this.editShownPeriod.bind(this)} id={item.id} /></span>
+            <span className="container clickable"><label className="clickable" onClick={this.showChildren.bind(this)}>{item.name}</label><input type="checkbox" className="clickable" defaultChecked="true" onClick={this.editShownPeriod.bind(this)} id={item.id} /></span>
             {((this.state.showEditForm === true) && (this.state.editChild == item.id)) ? <PeriodEdit item={item} submittedPeriodDetails={this.submittedPeriodDetails.bind(this)} /> :
              <SinglePeriod editButton={this.editPeriodDetails.bind(this)} item={item} showChildren={this.state.showChildren} calledChild={this.state.calledChild} />}
           </div>
@@ -61,14 +61,16 @@ import {connect} from 'react-redux'
     }
 
   return(
+    <div className="container"> 
     <div className="allforms">
       <div className="periodList">
-        {this.props.current.periods.length === 0 ? <h2>Please Add a Period</h2> : <h2>Payment Periods</h2>}
+        {this.props.current.periods.length === 0 ? <h3>Please Add a Period</h3> : <h3>Payment Periods</h3>}
           <ul>
             {showThis}
           </ul>
       </div>
     </div>
+    </div> 
   )
   }
 }

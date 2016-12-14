@@ -6,6 +6,16 @@
   padding: 20px;
   color: white;
 }
+.clickable {
+  display: inline;
+  padding: 0px;
+}
+.clickable label{
+  display: inline;
+}
+.clickable input[type="checkbox"] {
+  display: inline;
+}
 
 h2, h3, h4 {
   font-family: 'PT+Sans', serif;
