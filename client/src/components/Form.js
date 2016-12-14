@@ -10,9 +10,7 @@ const Form = (props) => {
   const handleChange = (event) => {
     let result = {}; let id = event.target.id;
     let val = event.target.value ? parseFloat(event.target.value) : 0
-    // debugger
     result[id] = val
-    // if val === "" || val === 0
     props.setValue(result)
   }
 

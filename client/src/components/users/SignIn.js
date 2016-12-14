@@ -18,7 +18,6 @@ class SignIn extends Component {
 
   handleSubmit(event){
     event.preventDefault()
-
     this.props.locateAndLoginUser(this.state)
   }
 

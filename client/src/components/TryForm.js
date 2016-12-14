@@ -6,12 +6,12 @@ import { overWritePeriods, setCard, resetCurrent} from '../ducks/current'
 import {setValue, removeValues} from '../ducks/tableData'
 
 class TryForm extends React.Component  {
-  
+
   componentWillMount(){
     this.props.resetCurrent()
     this.props.removeValues()
   }
-  
+
   constructor(props){
     super(props)
   }
@@ -50,7 +50,7 @@ render(){
   return (
     <div className="allforms">
       <div className="container" id="tableform" >
-        <h2>Input Your Debt</h2>
+        <h2>Your Credit Card Info</h2>
         <div>
           <label id="userLabel">Total Debt: $<input type="number" id="debt" placeholder="i.e.123.45" onChange={this.handleChange.bind(this)} /></label>
           <label id="userLabel">Interest Rate: <input type="number" id="interest" placeholder="i.e.123.45" onChange={this.handleChange.bind(this)} />%</label>
