@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { browserHistory } from 'react-router'
-import {setCard, addNewCardtoUser, removeCardFromCurrent, removeCardFromUser} from './current'
+import {setCard, addNewCardtoUser, removeCardFromCurrent, removeCardFromUser, overWritePeriods} from './current'
 
 
 export function createCard(formData){
@@ -15,6 +15,7 @@ export function createCard(formData){
       dispatch(setCard(response.card))
       dispatch(addNewCardtoUser(response.card))
       dispatch(foundCard())
+      dispatch(overWritePeriods(''))
       browserHistory.push('/user')
     }).catch((response)=>{
       let errors = response.responseJSON.error.join(', ')
