@@ -17,7 +17,7 @@ gem 'knock'
 gem 'faker'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'rails_12factor', group: :production
-
+gem 'foreman'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

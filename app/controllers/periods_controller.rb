@@ -16,6 +16,7 @@ class PeriodsController < ApplicationController
   end
   
   def destroy
+    byebug
     period = Period.find(params[:id])
     sendID = period.id
     period.delete 
